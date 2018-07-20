@@ -24,8 +24,9 @@ public class Utility
     }    
 
     public static async Task SendCode(string Phone, string Code)
-    { 
-        string message = "SOLK - Service Outfitter for Sri Lanka  \n Your verification Code: " + Code;
+    {
+        var sendCodeText = ConfigurationManager.AppSettings["SendCodeText"];
+        string message = sendCodeText + Code;
 
         var sendUsingBell = Convert.ToBoolean(ConfigurationManager.AppSettings[Constant.ConfigurationKeys.SendUsingBell]);
 
